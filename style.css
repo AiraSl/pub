@@ -43,7 +43,9 @@ body {
     margin: 0;
 }
 
-
+section {
+	margin: 0 auto;
+}
 
 .bandlist{
 	position: relative;
@@ -59,4 +61,39 @@ body {
 	align-items: center;
 	justify-content: space-between;
 }
+.bandlist .tooltip {
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	background-color: grey;
+	opacity: 0.9;
+	color: white;
+	font-size: 14px;
+	position: absolute;
+	width: 150px;
+	transform: translateX(-50%);
+	border-radius: 5px;
+	height: 45px;
+	top: 0px;
+	left: 50%;
+}
+.bandlist:hover {
+	background-color: mediumaquamarine;
+	opacity: 0.7;
+}
+.bandlist:hover .tooltip {
+	display: flex;
+}
+.bandlist .tooltip p {
+	margin: 0;
+}
 
+#afisha{
+	margin-top: 4px;
+	width: 600px;
+}
+
+.imgposition{
+	border-radius: 4px;
+	 height: 70%;

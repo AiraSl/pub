@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Publub</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+<body>
+	<header>
+		<img src="">
+		<nav>
+			<ul>
+				<li>Меню</li>
+				<li>Афіша</li>
+				<li>Контакти</li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<section>
+			<div>Забронювати столик</div>
+			<div>Передзамовлення страв</div>
+		</section>
+
+		<section id="pochatok">
+			<h1>листопад</h1>	
+			<p>початок о 20:00</p>
+		</section>
+
+		
+		<div id="numbertop">
+			<section class="flex-item-top">
+				<div class="flexy">чт</div>
+				<div class="flexy">пт</div>
+				<div class="flexy">сб</div>
+				<div class="flexy">нд</div>
+			</section>
+			<section class="flex-item-mid">
+				<div id="simna">17</div>
+				<div id="visimna">18</div>
+				<div id="devatna" data-date="19">19</div>
+				<div id="dvats">20</div>
+			</section>
+			<section class="flex-item-mid">
+				<div id="dvach">24</div>
+				<div id="pach">25</div>
+				<div id="sh">26</div>
+				<div id="sem">27</div>
+			</section>
+		</div>
+
+
+		
+	<section id="afisha">
+		
+		<div id="groupFirst" class="bandlist">
+			BandIt</div>
+		
+		<div id="groupSecond" class="bandlist">
+			Бумбокс
+			<img class="imgposition" src="images/бумбокс маленький.jpg">
+		</div>
+
+		<div id="groupThird" class="bandlist">
+			Гич Оркестр
+			<img class="imgposition" src="images/гич маленький.jpg">
+		</div>
+		
+		<div id="groupFourth" class="bandlist">
+			Sub Rosa
+			<img class="imgposition" src="images/Sub Rosa маленький.jpg">
+		</div>
+	</section>
+
+	<div id='modal'>
+		<p>
+			<img src="images/бумбокс афіша.jpg">
+			<span id="close">X</span>
+		</p>
+	</div>
+
+
+	</main>
+	<footer></footer>
+	
+	<script>
+			
+		var concerts = [
+			{
+				bandName: 'Boombox',
+				date: 19,
+				startTime: '20:00'
+			},
+			{
+				bandName: 'gych_orchestra',
+				date: 17,
+				startTime: '20:00'
+			},
+			{
+				bandName: 'subrosa',
+				date: 24,
+				startTime: '20:00'
+			}
+		];	
+		var selectedBand;
+		var modal = document.getElementById("modal");
+
+		function toggleModal() {
+			modal.classList.toggle('inview');
+		}
+
+		function myFunction(event){
+			var selectedDate = +event.target.attributes["data-date"].value;
+			
+			for (var i = 0; i < concerts.length; i++) {
+				if (concerts[i].date === selectedDate) {
+					selectedBand = concerts[i];
+				}
+			} 
+
+			if (selectedBand) {
+				toggleModal();
+			}
+
+	}
+
+		var concert = document.getElementById("devatna");
+		var closeIcon = document.getElementById('close');
+		var calendarBox = document.getElementById("numbertop");
+
+		calendarBox.addEventListener("click", function() {
+			console.log('calendar clicked');
+		});
+		concert.addEventListener("click", myFunction, false);
+		closeIcon.addEventListener('click', toggleModal, false);
+
+
+	</script>
+</body>
+</html>
